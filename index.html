@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Сладкие радости — торты и десерты на заказ в Санкт-Петербурге</title>
+  <meta name="description" content="Небольшая кондитерская в Санкт-Петербурге: торты на заказ, пирожные, десерты и свадебные торты.">
+
+  <!-- Шрифты: Kelly Slab для заголовков, Manrope для текста -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Manrope:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <!-- НОВОЕ: стили посыпки и калькулятора -->
+  <link rel="stylesheet" href="extras.css">
+  <script src="script.js" defer></script>
+  <!-- НОВОЕ: посыпка и калькулятор -->
+  <script src="extras.js" defer></script>
+</head>
+<body>
+  <canvas id="sprinkles-canvas"></canvas>
+  <!-- НОВОЕ: слой с падающей посыпкой (лежит позади всего содержимого) -->
+  <canvas id="sprinkles" aria-hidden="true"></canvas>
+
+  <!-- ШАПКА: название слева, меню справа -->
+  <header class="header">
+    <a class="logo" href="#top">Сладкие радости</a>
+    <!-- Кнопка-бургер: видна только на телефоне -->
+    <button class="burger" type="button" aria-label="Открыть меню"
+            aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <a href="#menu">Меню</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ПЕРВЫЙ ЭКРАН -->
+    <section class="hero">
+      <h1 class="hero__title">Торты и десерты на заказ</h1>
+      <p class="hero__slogan">Свежая выпечка и десерты в <span class="nowrap">Санкт-Петербурге</span> каждый день</p>
+
+      <div class="hero__grid">
+        <img class="hero__photo hero__photo--left"
+             src="images/hero-croissants.jpeg" alt="Круассаны с разной начинкой">
+
+        <div class="hero__buttons">
+          <!-- ИЗМЕНЕНО: «Торты на заказ» теперь ведёт к калькулятору -->
+          <a class="pill" href="#calc">Торты на заказ</a>
+          <a class="pill" href="#menu">Пирожные и десерты</a>
+          <a class="pill" href="#contacts">Свадебные торты</a>
+          <a class="btn-main" href="#contacts">Заказать</a>
+        </div>
+
+        <img class="hero__photo hero__photo--right"
+             src="images/hero-cake-berry.jpeg" alt="Свадебный торт с ягодами">
+      </div>
+    </section>
+
+    <!-- МЕНЮ -->
+    <section class="menu" id="menu">
+      <h2 class="section-title">Меню</h2>
+
+      <h3 class="chip">Наша выпечка</h3>
+      <ul class="grid">
+        <li class="item">
+          <img src="images/bake-cinnabon.jpeg" alt="Синнабон">
+          <p class="item__name">Синнабон</p>
+          <a class="price" href="#contacts">60 ₽</a>
+        </li>
+        <li class="item">
+          <img src="images/bake-donut-condensed.jpeg" alt="Пончик со сгущёнкой">
+          <p class="item__name">Пончик со сгущёнкой</p>
+          <a class="price" href="#contacts">65 ₽</a>
+        </li>
+        <li class="item">
+          <img src="images/bake-donut-chocolate.jpeg" alt="Пончик с шоколадом">
+          <p class="item__name">Пончик с шоколадом</p>
+          <a class="price" href="#contacts">65 ₽</a>
+        </li>
+        <li class="item">
+          <img src="images/bake-croissant-classic.jpeg" alt="Круассан классический">
+          <p class="item__name">Круассан классический</p>
+          <a class="price" href="#contacts">50 ₽</a>
+        </li>
+        <li class="item">
+          <img src="images/bake-croissant-chocolate.jpeg" alt="Круассан с шоколадом">
+          <p class="item__name">Круассан с шоколадом</p>
+          <a class="price" href="#contacts">70 ₽</a>
+        </li>
+      </ul>
+
+      <h3 class="chip">Наши десерты</h3>
+      <ul class="grid">
+        <li class="item">
+<img src="images/dessert-raspberry.jpeg" alt="Малиновый десерт">
+          <p class="item__name">Малиновый</p>
+          <a class="price" href="#contacts">150 ₽</a>
+        </li>
+        <li class="item">
+          <img src="images/dessert-peach.jpeg" alt="Персиковый десерт">
+          <p class="item__name">Персиковый</p>
+          <a class="price" href="#contacts">130 ₽</a>
+        </li>
+        <li class="item">
+          <img src="images/dessert-chocolate.jpeg" alt="Шоколадный десерт">
+          <p class="item__name">Шоколадный</p>
+          <a class="price" href="#contacts">180 ₽</a>
+        </li>
+        <li class="item">
+          <img src="images/dessert-mango.jpeg" alt="Манговый десерт">
+          <p class="item__name">Манговый</p>
+          <a class="price" href="#contacts">150 ₽</a>
+        </li>
+        <li class="item">
+          <img src="images/dessert-matcha.jpeg" alt="Десерт с матчей">
+          <p class="item__name">Матча</p>
+          <a class="price" href="#contacts">180 ₽</a>
+        </li>
+      </ul>
+
+      <h3 class="chip" id="fillings">Начинки тортов</h3>
+      <ul class="grid grid--fillings">
+        <li class="item item--filling">
+          <img src="images/filling-snickers.jpeg" alt="Начинка Сникерс">
+          <p class="item__name">Сникерс</p>
+          <a class="price" href="#calc">550 ₽/кг</a>
+        </li>
+        <li class="item item--filling">
+          <img src="images/filling-medovik.jpeg" alt="Начинка Медовик">
+          <p class="item__name">Медовик</p>
+          <a class="price" href="#calc">450 ₽/кг</a>
+        </li>
+        <li class="item item--filling">
+          <img src="images/filling-choco-cherry.jpeg" alt="Начинка Шоко-вишня">
+          <p class="item__name">Шоко-вишня</p>
+          <a class="price" href="#calc">550 ₽/кг</a>
+        </li>
+        <li class="item item--filling">
+          <img src="images/filling-pistachio.jpeg" alt="Начинка Фисташка">
+          <p class="item__name">Фисташка</p>
+          <a class="price" href="#calc">650 ₽/кг</a>
+        </li>
+        <li class="item item--filling">
+          <img src="images/filling-red-velvet.jpeg" alt="Начинка Красный бархат">
+          <p class="item__name">Красный бархат</p>
+          <a class="price" href="#calc">450 ₽/кг</a>
+        </li>
+      </ul>
+
+      <p class="note">
+        Также вы можете выбирать, комбинировать или собирать свою начинку сами,
+        связавшись с нами в чате или в нашей кондитерской
+      </p>
+    </section>
+
+    <!-- НОВОЕ: КАЛЬКУЛЯТОР ТОРТА -->
+    <section class="calc" id="calc">
+      <h2 class="section-title">Рассчитать торт</h2>
+
+      <div class="calc__grid">
+        <div class="calc__form">
+
+          <div class="calc__group" role="radiogroup" aria-labelledby="calcFillingTitle">
+            <h3 class="chip" id="calcFillingTitle">Начинка</h3>
+            <div class="calc__options">
+              <label class="calc__opt"><input type="radio" name="filling" value="550" data-name="Сникерс" checked><span>Сникерс<small>550 ₽/кг</small></span></label>
+              <label class="calc__opt"><input type="radio" name="filling" value="450" data-name="Медовик"><span>Медовик<small>450 ₽/кг</small></span></label>
+              <label class="calc__opt"><input type="radio" name="filling" value="550" data-name="Шоко-вишня"><span>Шоко-вишня<small>550 ₽/кг</small></span></label>
+              <label class="calc__opt"><input type="radio" name="filling" value="650" data-name="Фисташка"><span>Фисташка<small>650 ₽/кг</small></span></label>
+              <label class="calc__opt"><input type="radio" name="filling" value="450" data-name="Красный бархат"><span>Красный бархат<small>450 ₽/кг</small></span></label>
+            </div>
+          </div>
+
+          <div class="calc__group">
+            <h3 class="chip">Вес торта</h3>
+            <div class="calc__weight">
+              <button type="button" class="calc__step" id="wMinus" aria-label="Уменьшить вес">−</button>
+<output class="calc__kg" id="wValue" aria-live="polite">2&nbsp;кг</output>
+              <button type="button" class="calc__step" id="wPlus" aria-label="Увеличить вес">+</button>
+            </div>
+            <p class="calc__hint">От 1 до 10 кг, шаг 0,5 кг</p>
+          </div>
+
+          <div class="calc__group">
+            <h3 class="chip">Дополнительно</h3>
+            <div class="calc__options">
+              <label class="calc__opt"><input type="checkbox" name="extra" value="150" data-name="Надпись на торте"><span>Надпись<small>+150 ₽</small></span></label>
+              <label class="calc__opt"><input type="checkbox" name="extra" value="100" data-name="Свечи"><span>Свечи<small>+100 ₽</small></span></label>
+            </div>
+          </div>
+
+          <div class="calc__group" role="radiogroup" aria-labelledby="calcDeliveryTitle">
+            <h3 class="chip" id="calcDeliveryTitle">Получение</h3>
+            <div class="calc__options">
+              <label class="calc__opt"><input type="radio" name="delivery" value="0" data-name="Самовывоз" checked><span>Самовывоз<small>бесплатно</small></span></label>
+              <label class="calc__opt"><input type="radio" name="delivery" value="300" data-name="Доставка"><span>Доставка<small>+300 ₽</small></span></label>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="calc__result" aria-live="polite">
+          <h3 class="calc__result-title">Ваш расчёт</h3>
+          <ul class="calc__lines" id="calcLines"></ul>
+          <p class="calc__total"><span>Итого</span> <strong id="calcTotal">0&nbsp;₽</strong></p>
+          <button type="button" class="btn-main calc__go" id="toOrder">Оформить заказ</button>
+          <p class="calc__hint calc__hint--light">Цена ориентировочная, точную сумму подтвердим при заказе</p>
+        </aside>
+      </div>
+
+      <!-- Форма заказа: появляется после нажатия «Оформить заказ» -->
+      <form class="order" id="orderForm" hidden novalidate>
+        <h3 class="subtitle">Оформление заказа</h3>
+        <p class="calc__demo">Демо-проект: оплата и отправка заказа условные, данные никуда не передаются. Не вводите реальные данные.</p>
+
+        <label class="field">Имя
+          <input type="text" id="fName" autocomplete="off">
+          <span class="calc__err" data-err="name"></span>
+        </label>
+
+        <label class="field">Телефон
+          <input type="tel" id="fPhone" placeholder="+7 900 000-00-00" autocomplete="off">
+          <span class="calc__err" data-err="phone"></span>
+        </label>
+
+        <label class="field" id="addressField" hidden>Адрес доставки
+          <input type="text" id="fAddress" autocomplete="off">
+          <span class="calc__err" data-err="address"></span>
+        </label>
+
+        <label class="field">Дата получения
+          <input type="date" id="fDate">
+          <span class="calc__err" data-err="date"></span>
+        </label>
+
+        <div class="field" role="radiogroup" aria-labelledby="payTitle">
+          <span class="field__label" id="payTitle">Способ оплаты</span>
+          <div class="calc__options">
+            <label class="calc__opt"><input type="radio" name="pay" value="При получении" checked><span>При получении</span></label>
+            <label class="calc__opt"><input type="radio" name="pay" value="Перевод по СБП (демо)"><span>Перевод по СБП (демо)</span></label>
+          </div>
+        </div>
+
+        <label class="field">Комментарий к заказу
+          <textarea id="fComment" rows="3"></textarea>
+        </label>
+
+        <button type="submit" class="btn-main">Подтвердить заказ</button>
+      </form>
+
+      <div class="order order--done" id="orderDone" hidden role="status" tabindex="-1"></div>
+    </section>
+
+    <!-- О НАС -->
+    <section class="about" id="about">
+      <h2 class="section-title">О нас</h2>
+
+      <div class="about__grid">
+        <img class="about__photo about__photo--1"
+             src="images/about-baker.jpeg" alt="Кондитер украшает торт">
+<p class="about__text">
+          Мы небольшая кондитерская из <span class="nowrap">Санкт-Петербурга</span>.
+          Радуем людей тортами и десертами и умеем подстроиться под любые пожелания:
+          от классики до самых необычных идей.
+        </p>
+
+        <ul class="about__facts">
+          <li>Печём с 2023 года</li>
+          <li>Более 250 тортов за 3 года</li>
+          <li>Классические и ПП-версии</li>
+        </ul>
+
+        <img class="about__photo about__photo--2"
+             src="images/about-heart-cake.jpeg" alt="Торт в форме сердца">
+
+        <div class="about__order">
+          <h3 class="subtitle">Как заказать?</h3>
+          <p>
+            Приходите к нам в кондитерскую или свяжитесь с нами:<br>
+            Телефон: <a href="tel:+79000000000">+7 900 000-00-00</a>
+            (ежедневно, 10:00–18:00 МСК)<br>
+            MAX и ВК: в личные сообщения
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="contacts" id="contacts">
+      <div class="contacts__grid">
+        <div class="contacts__info">
+          <h2 class="section-title">Контакты</h2>
+
+          <p class="contacts__line">
+            <strong>Телефон:</strong> <a href="tel:+79000000000">+7 900 000-00-00</a><br>
+            <span class="contacts__hours">(10:00–18:00 МСК)</span>
+          </p>
+          <p class="contacts__line"><strong>Адрес:</strong> ул. Примерная, 1</p>
+
+          <div class="contacts__links">
+            <a class="pill" href="#">MAX: +7 900 000-00-00</a>
+            <a class="pill" href="https://vk.com/sladkie_radosti">ВК: vk.com/sladkie_radosti</a>
+            <a class="btn-main" href="tel:+79000000000">Заказать торт</a>
+          </div>
+        </div>
+
+        <img class="contacts__photo"
+             src="images/contacts-showcase.jpeg" alt="Витрина с десертами в кондитерской">
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    © Сладкие радости, 2026 · <span class="nowrap">Санкт-Петербург</span>
+  </footer>
+
+</body>
+</html>
